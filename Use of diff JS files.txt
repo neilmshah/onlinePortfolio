@@ -1,0 +1,13 @@
+Different kinds of animation effects used in portfolio!
+
+1. Wow.js + animate.css = to give a scroll reveal animation when items are revealed. Add class "wow fadeInOut"
+2. Stellar.js = to give parallax effect while scrolling through a background
+3. jquery.sticky.js = to give an item the sticky effect (nav bar in the portfolio)
+4. jquery.inview = used in the skill progress bars to start the animation once view port comes into view
+5. jquery.easypiechart.js = used for the circular progress bars in skills
+6. jquery.shuffle = used to shuffle the grid displayed in the portfolio area
+7. jquery.magnificPopUp = used for magnific pop up for protfolio projects
+8. jquery.easing = used for the slow-fast animated scroll through the page when a nav heading is clicked
+8. jquery.scrollspy = used to highlight the correct heading on the navbar as you scroll throught he page
+9. Back to top button = set such that it fades-in when you have scroll value is more than 100, else fades out(top of page)
+10. preloader = animation that comes before page is loaded

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="personal portfolio">
+ 	<meta name="keywords" content="personal portfolio">
+	<meta name="author" content="Neil Shah">
+
+	<title>Neil Shah</title>
+
+  <!-- Web Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+	<!-- Bootstrap core CSS -->
+	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<style>
+
+/* ---------------------------------------------- /*
+ * Preloader
+/* ---------------------------------------------- */
+
+#tt-preloader {
+	background: #FFF;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 9999;
+}
+
+#pre-status,
+.preload-placeholder {
+	background-image: url(./assets/images/preloader.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 200px;
+	left: 50%;
+	margin: -100px 0 0 -100px;
+	position: absolute;
+	top: 50%;
+	width: 200px;
+}
+
+.preload-placeholder {
+	background: none;
+	left: 0;
+	margin: 0;
+	text-align: center;
+	top: 65%;
+}
+
+
+/* === Chart CSS  === */
+.chart {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    margin: 40px auto;
+    text-align: center;
+}
+.chart canvas {
+    position:absolute; 
+    top:0; 
+    left:0;
+}
+.percent {
+    display: inline-block;
+    margin: auto;
+    line-height: 140px;
+    z-index: 2;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.percent:after {
+    content: '%';
+}
+
+.chart-text span {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+    display: block;
+    margin-top: 20px;
+}
+
+/*.percent:after {content: '%';margin-left: 0.1em;font-size: .8em;}*/
+.angular{margin-top:100px;}
+.angular .chart {margin-top:0;}
+.chart .chart-text h3{font-size:22px;}
+
+</style>
+</head>
+<body>
+	<!-- Preloader --> 
+	<div id="tt-preloader">
+		<div id="pre-status">
+			<div class="preload-placeholder"></div>
+		</div>
+	</div>
+	
+	<h1>Tester Page</h1>
+	
+		 <div class="row more-skill text-center">
+          <div class="col-xs-12 col-sm-4 col-md-2">
+              <div class="chart" data-percent="91" data-color="e74c3c">
+                    <span class="percent"></span>
+                    <div class="chart-text">
+                      <span>HTML5 & CSS3</span>
+                    </div>
+                </div>
+            </div>
+		  </div>	
+	
+	
+	<!-- Javascript files -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery.easypiechart.js"></script>
+	
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/jquery.inview.min.js"></script> 
+
+
+
+
+
+<script>
+jQuery(function ($) {
+
+    'use strict';
+
+    /* ---------------------------------------------- /*
+     * Preloader
+    /* ---------------------------------------------- */
+
+    $(window).ready(function() {
+        $('#pre-status').fadeOut();
+        $('#tt-preloader').delay(350).fadeOut('slow');
+    });
+
+    // -------------------------------------------------------------
+    // More skill
+    // -------------------------------------------------------------
+    $('.more-skill').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
+        if (visible) {
+            $('.chart').easyPieChart({
+                //your configuration goes here
+                easing: 'easeOut',
+                delay: 3000,
+                barColor:'#68c3a3',
+                trackColor:'rgba(255,255,255,0.2)',
+                scaleColor: false,
+                lineWidth: 8,
+                size: 140,
+                animate: 2000,
+                onStep: function(from, to, percent) {
+                    this.el.children[0].innerHTML = Math.round(percent);
+                }
+
+            });
+            $(this).unbind('inview');
+        }
+    });
+});
+
+</script>
+</body>
+</html>
